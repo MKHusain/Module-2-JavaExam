@@ -1,4 +1,4 @@
-/*
+
 package db;
 
 import java.io.FileInputStream;
@@ -11,20 +11,20 @@ import java.util.Properties;
 
 public class DataBaseConnection {
 
-    */
+
 /**
      *
      * This is a helper class to interact with MySQL Database tables
      * You are free to enhance this class as needed
      *
-     * *//*
+     * */
 
 
 
-    static Connection connect = null;
-    static Statement statement = null;
-    static ResultSet resultSet = null;
-    static PreparedStatement ps = null;
+    public static Connection connect = null;
+    public static Statement statement = null;
+    public static ResultSet resultSet = null;
+    public static PreparedStatement ps = null;
 
 
     public static Properties loadProperties() throws IOException {
@@ -49,19 +49,19 @@ public class DataBaseConnection {
 
         connect = DriverManager.getConnection(url,userName,passWord);
 
-        System.out.println("Database Connected");
+        //System.out.println("Database Connected");
 
     }
-    */
+
 /**
      * Read database
      *
-     * *//*
+     * */
 
 
     public static List<String> readDatabase(String tableNmae, String nameOfColumn1) throws SQLException, ClassNotFoundException, IOException {
 
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
 
         connectMySql();
         statement = connect.createStatement();
@@ -72,7 +72,7 @@ public class DataBaseConnection {
 
     public static List<String> getResultSetData(String nameOfColumn1) throws SQLException {
 
-        List<String> dataList = new ArrayList<>();
+        List<String> dataList = new ArrayList<String>();
 
         while (resultSet.next()){
 
@@ -89,7 +89,7 @@ public class DataBaseConnection {
 
     public static List<String> readDatabase(String tableNmae, String nameOfColumn1,String nameOfColumn2, String nameOfColumn3) throws SQLException, ClassNotFoundException, IOException {
 
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
 
         connectMySql();
         statement = connect.createStatement();
@@ -100,7 +100,7 @@ public class DataBaseConnection {
 
     public static List<String> getResultSetData(String nameOfColumn1,String nameOfColumn2, String nameOfColumn3 ) throws SQLException {
 
-        List<String> dataList = new ArrayList<>();
+        List<String> dataList = new ArrayList<String>();
 
         while (resultSet.next()){
 
@@ -116,12 +116,12 @@ public class DataBaseConnection {
 
     }
 
-    */
+
 /**
      *
      * Create Table
      *
-     * *//*
+     * */
 
 
     public static void createTableFromStringToMySql(String tableName, String columnName){
@@ -142,12 +142,11 @@ public class DataBaseConnection {
 
     }
 
-    */
 /**
      *
      * Insert data to a existing table
      *
-     * *//*
+     * */
 
     public static void insertDataFromArrayListToMySql(List<String> list,String tableName, String columnName)
     {
@@ -171,4 +170,3 @@ public class DataBaseConnection {
 
 
 }
-*/
